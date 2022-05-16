@@ -10,6 +10,10 @@ pip3 install -r requirements.txt
 
 There are 4 scripts total in the project:
 
+- `test_unit.py` - unit test made with pytest that tests both tasks, to run it via cmd:
+```
+python -m pytest test_unit.py
+```
 - `task1.py` - task1 from the pdf file with tasks, it downloads the sellers data and shows it in gui
 - `task1_view.py` - a subscript used in `task1.py` via importing to get the view of downloaded data, can be used independendtly using pre-downloaded data included in github, run it via cmd:
 ```
