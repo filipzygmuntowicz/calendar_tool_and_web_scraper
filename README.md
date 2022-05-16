@@ -19,6 +19,7 @@ python3 -m pytest test_unit.py
 ```
 python3 task1_view.py
 ```
+- `generate_dates.py` - used to generate folder of calendars to use with `find-available-slots.py`, is placed in the folder /calendars and generates the datas in the same folder.
 - `find-available-slot.py` - second task from pdf, it shows the soonest available date from the list in given directory for a given amount of time for a given amount of people, to run it via cmd:
 ```
 python3 find-available-slot.py [--calendars DIRECTORY] [--duration-in-minutes MINUTES ] [--minimum_people MINIMUM_PEOPLE] 
