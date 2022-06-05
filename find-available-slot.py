@@ -42,11 +42,10 @@ def dates_parse(directory):
 
 
 def date_unavailable(begin_date, end_date, minutes, proposed_date):
-    minutes = int(minutes*60)
+    minutes = int(minutes)*60
     if proposed_date > begin_date - minutes and proposed_date < end_date:
         return True
-    else:
-        return False
+    return False
 
 
 def find_soonest_date(
@@ -58,8 +57,10 @@ def find_soonest_date(
     all_dates = sorted(all_dates, key=lambda date: date["end_date"])
     for i in range(len(all_dates)):
         proposed_date = all_dates[i]["end_date"]
+        # REMOVE THOSE 2 LINES IF YOU WANT DATES FROM PAST
         if proposed_date < now:
             continue
+        #
         available = 0
         for calendar in calendars:
             calendar_ok = True
@@ -85,5 +86,5 @@ if __name__ == "__main__":
     parser.add_argument("--minimum-people", required=True, help="""
     minimum amount of people needed to be available""")
     args = parser.parse_args()
-    print(find_soonest_date(
-        args.calendars, args.duration_in_minutes, args.minimum_people))
+    print("ta dobra" + str(find_soonest_date(
+        args.calendars, args.duration_in_minutes, args.minimum_people)))

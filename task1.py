@@ -36,7 +36,7 @@ max_depth = 0
 sellers = Sellers()
 
 
-def get_sellers(url):
+def get_sellers(url, current_depth=0):
     global max_depth
     try:
         data = requests.get(
@@ -78,17 +78,16 @@ def get_sellers(url):
                     })
         for index, domain in enumerate(domains_to_check):
             if index == 0:
-                max_depth = max_depth + 1
+                max_depth = max(current_depth, max_depth)
                 print(max_depth)
-            get_sellers(domain)
+            get_sellers(domain, current_depth=current_depth + 1)
             print(domain + " checked!\n" + str(len(domains_to_check) -
                   index) + " domains left to check.")
             print(domain + " checked!")
 
-
-#    except (JSONDecodeError, requests.exceptions.ConnectionError, requests.exceptions.ReadTimeout, requests.exceptions.SSLError, BadJsonError, requests.exceptions.ChunkedEncodingError, requests.exceptions.TooManyRedirects, requests.exceptions.InvalidURL, AttributeError) as e:
-# The data sources are flawed and inconsistent, I could list each and every exception like above but with time new flawed sites would spawn with new errors that I can't predict, that's why I used just a general Exception
-    except Exception as e:
+    except (
+            requests.exceptions.RequestException, BadJsonError, AttributeError
+            ) as e:
         n = str(type(e).__name__)
         print("failed: " + url + " with error" + n)
 
