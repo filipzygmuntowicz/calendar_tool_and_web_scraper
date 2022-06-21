@@ -1,5 +1,7 @@
 # openxtasks
 
+https://pastebin.com/1Qjxa8LW
+
 # PREQUISITES:
 
 You need to install required libraries via:
@@ -14,13 +16,13 @@ There are 4 scripts total in the project:
 ```
 python3 -m pytest test_unit.py
 ```
-- `task1.py` - task1 from the pdf file with tasks, it downloads the sellers data and shows it in gui
+- `task1.py` - task1 from pastebin, it downloads the sellers data and shows it in gui
 - `task1_view.py` - a subscript used in `task1.py` via importing to get the view of downloaded data, can be used independendtly using pre-downloaded data included in github, run it via cmd:
 ```
 python3 task1_view.py
 ```
 - `generate_dates.py` - used to generate folder of calendars to use with `find-available-slots.py`, is placed in the folder /calendars and generates the datas in the same folder.
-- `find-available-slot.py` - second task from pdf, it shows the soonest available date from the list in given directory for a given amount of time for a given amount of people, to run it via cmd:
+- `find-available-slot.py` - second task from pastebin, it shows the soonest available date from the list in given directory for a given amount of time for a given amount of people, to run it via cmd:
 ```
 python3 find-available-slot.py [--calendars DIRECTORY] [--duration-in-minutes MINUTES ] [--minimum_people MINIMUM_PEOPLE] 
 ```
