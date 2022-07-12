@@ -1,5 +1,3 @@
-# openxtasks
-
 https://pastebin.com/1Qjxa8LW
 
 # PREQUISITES:
